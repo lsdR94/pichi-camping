@@ -12,7 +12,7 @@ const values = [
     icon: Eye,
     title: "Visión",
     description:
-      "Convertirnos en la plataforma de referencia para el camping-car y turismo de naturaleza en Venezuela.",
+      "Convertirnos en el referente Nacional respecto al camping-car y turismo ecológico en Venezuela.",
   },
   {
     icon: Users,
