@@ -8,7 +8,7 @@ import chaguaramas from "@/assets/p-chaguaramas.jpg";
 const campings = [
   {
     id: 1,
-    name: "Camping-car en Playa Chaguaramas",
+    name: "Camping-car en Playa C",
     location: "Sucre",
     description:
       "Experiencia de lujo en medio de la naturaleza con vistas panorámicas a la costa del estado Sucre.",
