@@ -42,7 +42,7 @@ export function Hero() {
             transition={{ delay: 0.3, duration: 0.8 }}
             className="text-4xl md:text-5xl lg:text-7xl font-bold text-sand-light mb-6 leading-tight"
           >
-            Camping simple, seguro y escalable en la{" "}
+            Seguridad y bienestar en la{" "}
             <span className="text-golden">naturaleza venezolana</span>
           </motion.h1>
 
@@ -52,7 +52,7 @@ export function Hero() {
             transition={{ delay: 0.5, duration: 0.8 }}
             className="text-lg md:text-xl text-sand/90 mb-10 max-w-2xl mx-auto"
           >
-            Píchi es una plataforma que conecta a viajeros con campamentos 
+            Conectamos a viajeros con campamentos 
             verificados en entornos naturales únicos, facilitando experiencias 
             auténticas, seguras y sostenibles en toda Venezuela.
           </motion.p>
@@ -67,7 +67,7 @@ export function Hero() {
               <a href="#campings">Encuentra tu camping</a>
             </Button>
             <Button variant="hero-outline" size="xl" asChild>
-              <a href="#nosotros">Conoce nuestro modelo</a>
+              <a href="#nosotros">Conoce nuestro enfoque</a>
             </Button>
           </motion.div>
         </motion.div>
