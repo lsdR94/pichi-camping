@@ -61,9 +61,8 @@ export function WhyPichi() {
             ¿Por qué elegir Píchi?
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
-            Creamos la infraestructura digital y operativa para que el camping 
-            en Venezuela sea accesible, confiable y fácil de escalar, 
-            integrando tecnología, cultura local y naturaleza.
+            Preparamos y cuidamos espacios naturales para que acampar en 
+            Venezuela sea seguro, accesible y auténtico.
           </p>
         </motion.div>
 
