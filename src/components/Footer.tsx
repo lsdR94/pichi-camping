@@ -1,8 +1,12 @@
 import { motion } from "framer-motion";
+import { useState } from "react";
+import emailjs from "@emailjs/browser"
 import { Mail, Phone, MapPin, Instagram, Facebook, Twitter } from "lucide-react";
 import logo from "@/assets/logo-pichi.png";
 
 export function Footer() {
+  const [newsletterEmail, setNewsletterEmail] = useState("");
+  const [sending, setSending] = useState(false);
   return (
     <footer id="contacto" className="bg-primary text-primary-foreground">
       <div className="container py-16">
@@ -68,17 +72,44 @@ export function Footer() {
             <p className="text-primary-foreground/70 text-sm mb-4">
               Recibe consejos de camping, destinos destacados y ofertas exclusivas.
             </p>
-            <form className="flex gap-2">
+
+            <form
+              className="flex gap-2"
+              onSubmit={async (e) => {
+                e.preventDefault();
+                setSending(true);
+
+                try {
+                  await emailjs.send(
+                    "SERVICE_ID", // reemplaza con tu Service ID
+                    "TEMPLATE_ID_NEWSLETTER", // reemplaza con tu Template ID
+                    { email: newsletterEmail },
+                    "PUBLIC_KEY" // reemplaza con tu Public Key
+                  );
+
+                  setNewsletterEmail("");
+                  alert("Gracias por suscribirte");
+                } catch {
+                  alert("Error al enviar. Intenta nuevamente.");
+                } finally {
+                  setSending(false);
+                }
+              }}
+            >
               <input
                 type="email"
+                required
+                value={newsletterEmail}
+                onChange={(e) => setNewsletterEmail(e.target.value)}
                 placeholder="Tu email"
                 className="flex-1 px-4 py-2.5 rounded-lg bg-forest-light text-primary-foreground placeholder:text-primary-foreground/50 text-sm focus:outline-none focus:ring-2 focus:ring-golden"
               />
               <button
                 type="submit"
-                className="px-4 py-2.5 bg-golden text-primary font-semibold rounded-lg hover:bg-golden/90 transition-colors text-sm"
+                disabled={sending}
+                className="px-4 py-2.5 bg-golden text-primary font-semibold rounded-lg hover:bg-golden/90 transition-colors text-sm disabled:opacity-60"
               >
-                Suscribir
+                {sending ? "Enviando..." : "Suscribir"}
               </button>
             </form>
           </div>
@@ -89,7 +120,7 @@ export function Footer() {
       <div className="border-t border-forest-light">
         <div className="container py-6 flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-primary-foreground/60 text-sm">
-            © 2025 Píchi. Todos los derechos reservados.
+            © 2026 Píchi. Todos los derechos reservados.
           </p>
           <div className="flex gap-6 text-sm">
             <a href="#" className="text-primary-foreground/60 hover:text-golden transition-colors">
