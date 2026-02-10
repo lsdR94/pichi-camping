@@ -77,7 +77,7 @@ const handleSubmit = async (e: React.FormEvent) => {
 
   const handleWhatsApp = () => {
     const message = encodeURIComponent(
-      `¡Hola! Me interesa reservar en ${camping?.name} (${camping?.location}). Mi nombre es ${formData.name || camping?.name}.`
+      `¡Hola! Me interesa reservar en ${camping?.name} (${camping?.location}). Mi nombre es ${formData.name}.`
     );
     window.open(`https://wa.me/584126028385?text=${message}`, "_blank");
   };
