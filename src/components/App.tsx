@@ -84,10 +84,6 @@ export function App() {
                 podrás disfrutar de todas estas funcionalidades!
               </p>
             </div>
-
-            <Button size="lg">
-              Notifícame cuando esté lista
-            </Button>
           </motion.div>
 
           {/* Phone Mockup */}
