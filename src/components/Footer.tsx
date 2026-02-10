@@ -81,10 +81,10 @@ export function Footer() {
 
                 try {
                   await emailjs.send(
-                    "SERVICE_ID", // reemplaza con tu Service ID
-                    "TEMPLATE_ID_NEWSLETTER", // reemplaza con tu Template ID
+                    "service_s9m1kil",
+                    "template_9jprtrb",
                     { email: newsletterEmail },
-                    "PUBLIC_KEY" // reemplaza con tu Public Key
+                    "0HDkme2B2FxnuuSZ-"
                   );
 
                   setNewsletterEmail("");
