@@ -123,15 +123,15 @@ export function Footer() {
             © 2026 Píchi. Todos los derechos reservados.
           </p>
           <div className="flex gap-6 text-sm">
-            <a href="#" className="text-primary-foreground/60 hover:text-golden transition-colors">
+            {/* <a href="#" className="text-primary-foreground/60 hover:text-golden transition-colors">
               Términos
-            </a>
-            <a href="#" className="text-primary-foreground/60 hover:text-golden transition-colors">
+            </a> */}
+            {/* <a href="#" className="text-primary-foreground/60 hover:text-golden transition-colors">
               Privacidad
-            </a>
-            <a href="#" className="text-primary-foreground/60 hover:text-golden transition-colors">
+            </a> */}
+            {/* <a href="#" className="text-primary-foreground/60 hover:text-golden transition-colors">
               FAQ
-            </a>
+            </a> */}
           </div>
         </div>
       </div>
