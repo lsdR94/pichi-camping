@@ -1,4 +1,5 @@
 import { useState } from "react";
+import emailjs from "@emailjs/browser";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, Calendar, Users, Mail, Phone, MessageSquare } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -29,19 +30,31 @@ export function ReservationModal({ isOpen, onClose, camping }: ReservationModalP
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
+const handleSubmit = async (e: React.FormEvent) => {
+  e.preventDefault();
+  setIsSubmitting(true);
 
-    // Simulate form submission
-    await new Promise((resolve) => setTimeout(resolve, 1000));
+  try {
+    await emailjs.send(
+      "service_s9m1kil",
+      "template_nqpvk0d",
+      {
+        name: formData.name,
+        email: formData.email,
+        phone: formData.phone,
+        date: formData.date,
+        guests: formData.guests,
+        message: formData.message,
+        camping: `${camping?.name} - ${camping?.location}`,
+      },
+      "0HDkme2B2FxnuuSZ-"
+    );
 
     toast({
       title: "¡Solicitud enviada!",
-      description: "Nos pondremos en contacto contigo pronto para confirmar tu reserva.",
+      description: "Te contactaremos pronto.",
     });
 
-    setIsSubmitting(false);
     setFormData({
       name: "",
       email: "",
@@ -51,13 +64,22 @@ export function ReservationModal({ isOpen, onClose, camping }: ReservationModalP
       message: "",
     });
     onClose();
-  };
+  } catch (error) {
+    toast({
+      title: "Error",
+      description: "No se pudo enviar la solicitud.",
+      variant: "destructive",
+    });
+  } finally {
+    setIsSubmitting(false);
+  }
+};
 
   const handleWhatsApp = () => {
     const message = encodeURIComponent(
       `¡Hola! Me interesa reservar en ${camping?.name} (${camping?.location}). Mi nombre es ${formData.name || "[Tu nombre]"}.`
     );
-    window.open(`https://wa.me/584121234567?text=${message}`, "_blank");
+    window.open(`https://wa.me/584126028385?text=${message}`, "_blank");
   };
 
   if (!camping) return null;
@@ -139,7 +161,7 @@ export function ReservationModal({ isOpen, onClose, camping }: ReservationModalP
                     required
                     value={formData.phone}
                     onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                    placeholder="+58 412..."
+                    placeholder="+58 ..."
                   />
                 </div>
               </div>
